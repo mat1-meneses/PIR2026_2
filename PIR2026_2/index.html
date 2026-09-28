@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PIR2026_2</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #F5F5F5;
+      font-family: Arial, sans-serif;
+    }
+    .contenedor {
+      max-width: 1300px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    /* HEADER CON LOGO A LA IZQUIERDA */
+    .header-institucional {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .logo-container {
+      width: 180px; /* Ancho reservado para el logo */
+    }
+    .logo-container img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .header-texto {
+      flex: 1;
+      text-align: center;
+      margin-right: 180px; /* Compensa el ancho del logo para centrar el título perfectamente */
+    }
+    h1 {
+      color: #1A1A1A;
+      margin: 0;
+      font-size: 24px;
+    }
+    p.subtitulo {
+      color: #4D4D4D;
+      margin: 5px 0 0 0;
+      font-size: 15px;
+    }
+
+    /* BARRA DE PESTAÑAS TIPO NAVEGADOR */
+    .tabs-bar {
+      display: flex;
+      gap: 5px;
+      margin-bottom: -2px; /* Se solapa limpiamente con el borde del marco */
+      padding-left: 10px;
+    }
+    .tab-btn {
+      background: #E0E0E0;
+      border: 2px solid #C5C5C5;
+      border-bottom: none;
+      border-radius: 6px 6px 0 0;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #555555;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover {
+      background: #EAEAEA;
+      color: #1A1A1A;
+    }
+    .tab-btn.active {
+      background: #FFFFFF;
+      color: #E35210;
+      border-color: #E35210;
+      border-bottom: 2px solid #FFFFFF;
+      z-index: 2;
+    }
+
+    /* MARCO DEL REPORTE */
+    .marco-iframe {
+      border: 2px solid #E35210;
+      border-radius: 0 8px 8px 8px;
+      overflow: hidden;
+      background: #FFFFFF;
+      position: relative;
+      z-index: 1;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    iframe {
+      width: 100%;
+      height: 900px;
+      border: none;
+      display: block;
+    }
+
+    /* Responsivo para móviles */
+    @media (max-width: 768px) {
+      .header-institucional {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .header-texto {
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    
+    <!-- Encabezado con Logo y Título -->
+    <header class="header-institucional">
+      <div class="logo-container">
+        <!-- Archivo local dentro del repositorio -->
+        <img src="logo-udla.png" alt="Logo UDLA">
+      </div>
+      <div class="header-texto">
+        <h1>PIR2026_2</h1>
+        <p class="subtitulo">Universidad de Las Américas — Chile</p>
+      </div>
+    </header>
+
+    <!-- Barra de pestañas -->
+    <div class="tabs-bar">
+      <button class="tab-btn active" onclick="cambiarPestana(event, 'tab-sec-a')">Sección A</button>
+      <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-b')">Sección B: Carga de trabajo </button>
+      <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-c')">Sección C: Control algorítmico</button>
+      <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-d')">Sección D: Autonomía laboral</button>
+      <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-e')">Sección E: Transparencia algorítmica</button>
+      <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-f')">Sección F: Tecnoestrés</button>
+      <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-h')">Sección H: Burnout</button>
+      <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-j')">Sección J: Desempeño laboral</button>
+    </div>
+
+    <!-- Contenido de las pestañas -->
+    <div class="marco-iframe">
+      
+      <!-- Pestaña 1: Sección A -->
+      <div id="tab-sec-a" class="tab-content active">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/Ga56F" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+      </div>
+
+      <!-- Pestaña 2: Sección B  -->
+      <div id="tab-sec-b" class="tab-content">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_a03eecza7d"></iframe>
+      </div>
+
+      <!-- Pestaña 3: Sección C  -->
+      <div id="tab-sec-c" class="tab-content">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_6ho5tcza7d"></iframe>
+      </div>
+
+      <!-- Pestaña 4: Sección D  -->
+      <div id="tab-sec-d" class="tab-content">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_3owkvcza7d"></iframe>
+      </div>
+
+      <!-- Pestaña 5: Sección E -->
+      <div id="tab-sec-e" class="tab-content">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_x86avppi7d"></iframe>
+      </div>
+
+      <!-- Pestaña 6: Sección F  -->
+      <div id="tab-sec-f" class="tab-content">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_043oyppi7d"></iframe>
+      </div>
+
+      <!-- Pestaña 7: Sección H  -->
+      <div id="tab-sec-h" class="tab-content">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_3sd4pqpi7d"></iframe>
+      </div>
+
+      <!-- Pestaña 8: Sección J  -->
+      <div id="tab-sec-j" class="tab-content">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_6yi2qqpi7d"></iframe>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function cambiarPestana(evt, tabId) {
+      // 1. Ocultar todos los contenidos de pestaña
+      const contenidos = document.querySelectorAll('.tab-content');
+      contenidos.forEach(c => c.classList.remove('active'));
+
+      // 2. Quitar clase activa a todos los botones
+      const botones = document.querySelectorAll('.tab-btn');
+      botones.forEach(b => b.classList.remove('active'));
+
+      // 3. Activar la pestaña y el botón clicado
+      document.getElementById(tabId).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>
