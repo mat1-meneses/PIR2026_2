@@ -12,21 +12,20 @@
       font-family: Arial, sans-serif;
     }
     .contenedor {
-      max-width: 1300px;
-      margin: 25px auto;
+      max-width: 1350px;
+      margin: 20px auto;
       padding: 0 20px 40px 20px;
     }
 
-    /* HEADER CON LOGO MÁS GRANDE */
+    /* HEADER */
     .header-institucional {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 25px;
-      position: relative;
     }
     .logo-container {
-      width: 240px; /* Logo agrandado */
+      width: 250px;
     }
     .logo-container img {
       width: 100%;
@@ -36,7 +35,7 @@
     .header-texto {
       flex: 1;
       text-align: center;
-      margin-right: 240px; /* Compensa el logo para que el título quede centrado */
+      margin-right: 250px;
     }
     h1 {
       color: #1A1A1A;
@@ -45,58 +44,58 @@
     }
     p.subtitulo {
       color: #4D4D4D;
-      margin: 6px 0 0 0;
+      margin: 5px 0 0 0;
       font-size: 15px;
     }
 
-    /* TÍTULO DE BLOQUE */
-    .bloque-titulo {
+    /* TITULOS DE BLOQUES */
+    .bloque-header {
       font-size: 18px;
       font-weight: bold;
       color: #1A1A1A;
-      margin-bottom: 10px;
+      margin: 25px 0 12px 0;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
-    .bloque-titulo::before {
+    .bloque-header::before {
       content: "";
-      display: inline-block;
       width: 6px;
-      height: 18px;
+      height: 20px;
       background-color: #E35210;
       border-radius: 2px;
+      display: inline-block;
     }
 
-    /* BLOQUE 1: SECCIÓN A AISLADA */
-    .bloque-seccion-a {
-      margin-bottom: 40px;
-    }
+    /* BLOQUE 1: SECCIÓN A */
     .marco-seccion-a {
       border: 2px solid #E35210;
       border-radius: 8px;
       overflow: hidden;
       background: #FFFFFF;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .marco-seccion-a iframe {
+      width: 100%;
+      height: 850px;
+      border: none;
+      display: block;
     }
 
-    /* BLOQUE 2: DEMÁS SECCIONES CON PESTAÑAS */
-    .bloque-otras-secciones {
-      margin-top: 20px;
-    }
+    /* BLOQUE 2: PESTAÑAS (B A J) */
     .tabs-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 5px;
+      gap: 6px;
       margin-bottom: -2px;
       padding-left: 10px;
     }
     .tab-btn {
-      background: #E5E5E5;
-      border: 2px solid #C5C5C5;
+      background: #E2E2E2;
+      border: 2px solid #BDBDBD;
       border-bottom: none;
       border-radius: 6px 6px 0 0;
-      padding: 10px 16px;
+      padding: 10px 18px;
       font-size: 13.5px;
       font-weight: bold;
       color: #4A4A4A;
@@ -116,7 +115,6 @@
       z-index: 2;
     }
 
-    /* MARCO DEL REPORTE INFERIOR */
     .marco-iframe {
       border: 2px solid #E35210;
       border-radius: 0 8px 8px 8px;
@@ -124,7 +122,7 @@
       background: #FFFFFF;
       position: relative;
       z-index: 1;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
     .tab-content {
       display: none;
@@ -132,14 +130,13 @@
     .tab-content.active {
       display: block;
     }
-    iframe {
+    .marco-iframe iframe {
       width: 100%;
-      height: 900px;
+      height: 950px;
       border: none;
       display: block;
     }
 
-    /* Responsivo para móviles y tablets */
     @media (max-width: 900px) {
       .header-institucional {
         flex-direction: column;
@@ -149,18 +146,18 @@
         margin-right: 0;
       }
       .logo-container {
-        width: 200px;
+        width: 190px;
       }
     }
   </style>
 </head>
 <body>
   <div class="contenedor">
-    
-    <!-- Encabezado con Logo y Título -->
+
+    <!-- Encabezado institucional -->
     <header class="header-institucional">
       <div class="logo-container">
-        <img src="logo-udla.png" alt="Logo UDLA">
+        <img src="logo-udla.png" alt="Logo Universidad de Las Américas">
       </div>
       <div class="header-texto">
         <h1>PIR2026_2</h1>
@@ -168,69 +165,47 @@
       </div>
     </header>
 
-    <!-- BLOQUE 1: SECCIÓN A SOLA -->
-    <section class="bloque-seccion-a">
-      <div class="bloque-titulo">Sección A: Datos sociodemográficos</div>
-      <div class="marco-seccion-a">
-        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/Ga56F" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-      </div>
-    </section>
+    <!-- BLOQUE 1: SECCIÓN A AISLADA -->
+    <div class="bloque-header">Sección A: Datos sociodemográficos</div>
+    <div class="marco-seccion-a">
+      <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/Ga56F" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+    </div>
 
     <!-- BLOQUE 2: OTRAS SECCIONES EN PESTAÑAS -->
-    <section class="bloque-otras-secciones">
-      <div class="bloque-titulo">Dimensiones y Escalas de Evaluación</div>
-      
-      <!-- Barra de pestañas (de B a J) -->
-      <div class="tabs-bar">
-        <button class="tab-btn active" onclick="cambiarPestana(event, 'tab-sec-b')">Sección B: Carga de trabajo</button>
-        <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-c')">Sección C: Control algorítmico</button>
-        <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-d')">Sección D: Autonomía laboral</button>
-        <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-e')">Sección E: Transparencia algorítmica</button>
-        <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-f')">Sección F: Tecnoestrés</button>
-        <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-h')">Sección H: Burnout</button>
-        <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-j')">Sección J: Desempeño laboral</button>
+    <div class="bloque-header" style="margin-top: 40px;">Dimensiones del Estudio</div>
+    <div class="tabs-bar">
+      <button class="tab-btn active" onclick="cambiarPestana(event, 'tab-sec-b')">Sección B: Carga de trabajo</button>
+      <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-c')">Sección C: Control algorítmico</button>
+      <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-d')">Sección D: Autonomía laboral</button>
+      <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-e')">Sección E: Transparencia algorítmica</button>
+      <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-f')">Sección F: Tecnoestrés</button>
+      <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-h')">Sección H: Burnout</button>
+      <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-j')">Sección J: Desempeño laboral</button>
+    </div>
+
+    <div class="marco-iframe">
+      <div id="tab-sec-b" class="tab-content active">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_a03eecza7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
       </div>
-
-      <!-- Contenedor dinámico de las pestañas -->
-      <div class="marco-iframe">
-        
-        <!-- Pestaña B (activa por defecto en este bloque) -->
-        <div id="tab-sec-b" class="tab-content active">
-          <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_a03eecza7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-        </div>
-
-        <!-- Pestaña C -->
-        <div id="tab-sec-c" class="tab-content">
-          <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_6ho5tcza7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-        </div>
-
-        <!-- Pestaña D -->
-        <div id="tab-sec-d" class="tab-content">
-          <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_3owkvcza7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-        </div>
-
-        <!-- Pestaña E -->
-        <div id="tab-sec-e" class="tab-content">
-          <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_x86avppi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-        </div>
-
-        <!-- Pestaña F -->
-        <div id="tab-sec-f" class="tab-content">
-          <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_043oyppi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-        </div>
-
-        <!-- Pestaña H -->
-        <div id="tab-sec-h" class="tab-content">
-          <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_3sd4pqpi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-        </div>
-
-        <!-- Pestaña J -->
-        <div id="tab-sec-j" class="tab-content">
-          <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_6yi2qqpi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-        </div>
-
+      <div id="tab-sec-c" class="tab-content">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_6ho5tcza7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
       </div>
-    </section>
+      <div id="tab-sec-d" class="tab-content">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_3owkvcza7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+      </div>
+      <div id="tab-sec-e" class="tab-content">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_x86avppi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+      </div>
+      <div id="tab-sec-f" class="tab-content">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_043oyppi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+      </div>
+      <div id="tab-sec-h" class="tab-content">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_3sd4pqpi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+      </div>
+      <div id="tab-sec-j" class="tab-content">
+        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_6yi2qqpi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+      </div>
+    </div>
 
   </div>
 
