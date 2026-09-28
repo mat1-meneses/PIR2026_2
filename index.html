@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PIR2026_2</title>
   <style>
+    :root {
+      /* Cambia este valor para agrandar o achicar el logo */
+      --logo-ancho: 420px;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -25,7 +30,8 @@
       margin-bottom: 25px;
     }
     .logo-container {
-      width: 250px;
+      width: var(--logo-ancho);
+      flex-shrink: 0;
     }
     .logo-container img {
       width: 100%;
@@ -35,7 +41,7 @@
     .header-texto {
       flex: 1;
       text-align: center;
-      margin-right: 250px;
+      margin-right: var(--logo-ancho); /* mismo valor que el logo para que el título quede centrado */
     }
     h1 {
       color: #1A1A1A;
@@ -67,6 +73,13 @@
       display: inline-block;
     }
 
+    /* Separación clara entre el bloque A y el bloque de pestañas */
+    .separador {
+      border: 0;
+      border-top: 2px dashed #BDBDBD;
+      margin: 60px 0 10px 0;
+    }
+
     /* BLOQUE 1: SECCIÓN A */
     .marco-seccion-a {
       border: 2px solid #E35210;
@@ -82,7 +95,7 @@
       display: block;
     }
 
-    /* BLOQUE 2: PESTAÑAS (B A J) */
+    /* BLOQUE 2: PESTAÑAS (B a J) */
     .tabs-bar {
       display: flex;
       flex-wrap: wrap;
@@ -138,15 +151,15 @@
     }
 
     @media (max-width: 900px) {
+      :root {
+        --logo-ancho: 280px;
+      }
       .header-institucional {
         flex-direction: column;
         gap: 15px;
       }
       .header-texto {
         margin-right: 0;
-      }
-      .logo-container {
-        width: 190px;
       }
     }
   </style>
@@ -171,8 +184,10 @@
       <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/Ga56F" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
     </div>
 
+    <hr class="separador">
+
     <!-- BLOQUE 2: OTRAS SECCIONES EN PESTAÑAS -->
-    <div class="bloque-header" style="margin-top: 40px;">Dimensiones del Estudio</div>
+    <div class="bloque-header">Dimensiones del Estudio</div>
     <div class="tabs-bar">
       <button class="tab-btn active" onclick="cambiarPestana(event, 'tab-sec-b')">Sección B: Carga de trabajo</button>
       <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-c')">Sección C: Control algorítmico</button>
@@ -183,43 +198,57 @@
       <button class="tab-btn" onclick="cambiarPestana(event, 'tab-sec-j')">Sección J: Desempeño laboral</button>
     </div>
 
+    <!-- Los iframes usan data-src: cada uno se carga solo cuando se abre su pestaña -->
     <div class="marco-iframe">
       <div id="tab-sec-b" class="tab-content active">
-        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_a03eecza7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        <iframe data-src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_a03eecza7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
       </div>
       <div id="tab-sec-c" class="tab-content">
-        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_6ho5tcza7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        <iframe data-src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_6ho5tcza7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
       </div>
       <div id="tab-sec-d" class="tab-content">
-        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_3owkvcza7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        <iframe data-src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_3owkvcza7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
       </div>
       <div id="tab-sec-e" class="tab-content">
-        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_x86avppi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        <iframe data-src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_x86avppi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
       </div>
       <div id="tab-sec-f" class="tab-content">
-        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_043oyppi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        <iframe data-src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_043oyppi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
       </div>
       <div id="tab-sec-h" class="tab-content">
-        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_3sd4pqpi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        <iframe data-src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_3sd4pqpi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
       </div>
       <div id="tab-sec-j" class="tab-content">
-        <iframe src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_6yi2qqpi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        <iframe data-src="https://datastudio.google.com/embed/reporting/e68a0b41-d900-4813-89d4-76f87aabeb6f/page/p_6yi2qqpi7d" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
       </div>
     </div>
 
   </div>
 
   <script>
-    function cambiarPestana(evt, tabId) {
-      const contenidos = document.querySelectorAll('.tab-content');
-      contenidos.forEach(c => c.classList.remove('active'));
-
-      const botones = document.querySelectorAll('.tab-btn');
-      botones.forEach(b => b.classList.remove('active'));
-
-      document.getElementById(tabId).classList.add('active');
-      evt.currentTarget.classList.add('active');
+    // Carga el iframe de una pestaña solo la primera vez que se muestra
+    function cargarIframe(contenedor) {
+      const iframe = contenedor.querySelector('iframe[data-src]');
+      if (iframe) {
+        iframe.src = iframe.getAttribute('data-src');
+        iframe.removeAttribute('data-src');
+      }
     }
+
+    function cambiarPestana(evt, tabId) {
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+      const destino = document.getElementById(tabId);
+      destino.classList.add('active');
+      evt.currentTarget.classList.add('active');
+      cargarIframe(destino);
+    }
+
+    // Carga la pestaña activa al abrir la página (Sección B)
+    document.addEventListener('DOMContentLoaded', function () {
+      cargarIframe(document.querySelector('.tab-content.active'));
+    });
   </script>
 </body>
 </html>
