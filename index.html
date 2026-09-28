@@ -29,12 +29,16 @@
       justify-content: space-between;
       margin-bottom: 25px;
     }
+    /* El PNG trae mucho espacio vacío a los lados, así que se recorta con overflow:hidden
+       y la imagen se amplía dentro del contenedor. */
     .logo-container {
       width: var(--logo-ancho);
       flex-shrink: 0;
+      overflow: hidden;
     }
     .logo-container img {
-      width: 100%;
+      width: 175%;
+      margin-left: -40%;
       height: auto;
       display: block;
     }
@@ -96,20 +100,26 @@
     }
 
     /* BLOQUE 2: PESTAÑAS (B a J) */
+    /* Pestañas siempre en una sola fila */
     .tabs-bar {
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
+      flex-wrap: nowrap;
+      gap: 4px;
       margin-bottom: -2px;
       padding-left: 10px;
+      overflow-x: auto;
     }
     .tab-btn {
+      flex: 1 1 0;
+      min-width: 0;
       background: #E2E2E2;
       border: 2px solid #BDBDBD;
       border-bottom: none;
       border-radius: 6px 6px 0 0;
-      padding: 10px 18px;
-      font-size: 13.5px;
+      padding: 10px 6px;
+      font-size: 12px;
+      line-height: 1.25;
+      text-align: center;
       font-weight: bold;
       color: #4A4A4A;
       cursor: pointer;
@@ -160,6 +170,11 @@
       }
       .header-texto {
         margin-right: 0;
+      }
+      /* En pantallas pequeñas las pestañas se deslizan horizontalmente */
+      .tab-btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
       }
     }
   </style>
