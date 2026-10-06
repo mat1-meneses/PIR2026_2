@@ -13,7 +13,7 @@
   <style>
     :root {
       /* Cambia este valor para agrandar o achicar el logo */
-      --logo-ancho: 200px;
+      --logo-ancho: 180px;
 
       --acento: #E35210;
       --texto: #1F1F1F;
@@ -32,35 +32,35 @@
       background: var(--fondo);
       font-family: var(--serif);
       color: var(--texto);
-      line-height: 1.65;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
     .contenedor {
       max-width: 1350px;
-      margin: 40px auto;
-      padding: 0 24px 60px 24px;
+      margin: 24px auto;
+      padding: 0 24px 48px 24px;
     }
 
     /* =========================================
-       ENCABEZADO ESTILO PAPER
+       ENCABEZADO ESTILO PAPER (compacto)
+       Logo arriba a la izquierda, texto centrado,
+       ambos en la misma fila para no sumar altura.
        ========================================= */
     .header-institucional {
       background: var(--papel);
-      padding: 56px 64px 48px 64px;
-      margin-bottom: 40px;
+      padding: 24px 32px 22px 32px;
+      margin-bottom: 0;
       border-top: 4px solid var(--acento);
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 6px 18px rgba(0,0,0,0.04);
+      display: grid;
+      grid-template-columns: var(--logo-ancho) 1fr var(--logo-ancho);
+      column-gap: 24px;
+      align-items: start;
     }
 
     .logo-container {
       width: var(--logo-ancho);
-      align-self: flex-start;   /* logo arriba a la izquierda */
-      margin: -24px 0 28px -24px;
     }
     .logo-container img {
       width: 100%;
@@ -69,49 +69,51 @@
     }
 
     .header-texto {
-      max-width: 860px;   /* ancho de lectura cómodo */
+      text-align: center;
+      max-width: 860px;
       width: 100%;
+      justify-self: center;
     }
 
     .header-texto h1 {
       font-family: var(--serif);
-      font-size: 2.1rem;
+      font-size: 1.75rem;
       font-weight: 700;
-      line-height: 1.3;
+      line-height: 1.28;
       letter-spacing: -0.01em;
-      margin: 0 0 18px 0;
+      margin: 4px 0 10px 0;
       color: var(--texto);
     }
 
     p.subtitulo {
       font-style: italic;
-      font-size: 1.05rem;
-      line-height: 1.6;
+      font-size: 1rem;
+      line-height: 1.5;
       color: var(--texto-suave);
-      margin: 0 auto 28px auto;
+      margin: 0 auto 14px auto;
       max-width: 680px;
     }
 
-    /* Bloque de autores, separado por filetes finos */
+    /* Autores en tres columnas: mucho menos alto que apilados */
     .equipo-investigacion {
       border-top: 1px solid var(--linea);
-      border-bottom: 1px solid var(--linea);
-      padding: 22px 0;
+      padding-top: 12px;
       display: grid;
-      gap: 14px;
+      grid-template-columns: 1fr 1.2fr 1.6fr;
+      gap: 18px;
     }
 
     .equipo-investigacion p {
       margin: 0;
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 0.95rem;
+      line-height: 1.45;
       color: var(--texto);
     }
 
     .equipo-investigacion p strong {
       display: block;
       font-family: var(--sans);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -124,11 +126,11 @@
        ========================================= */
     .bloque-header {
       font-family: var(--serif);
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 600;
       color: var(--texto);
-      margin: 48px 0 18px 0;
-      padding-bottom: 10px;
+      margin: 32px 0 14px 0;
+      padding-bottom: 8px;
       border-bottom: 1px solid var(--linea);
       display: flex;
       align-items: baseline;
@@ -146,7 +148,7 @@
     .separador {
       border: 0;
       border-top: 1px solid var(--linea);
-      margin: 64px auto 16px auto;
+      margin: 40px auto 8px auto;
       width: 40%;
     }
 
@@ -167,7 +169,7 @@
     }
 
     /* =========================================
-       PESTAÑAS (B a J) — con más aire
+       PESTAÑAS (B a J)
        ========================================= */
     .tabs-bar {
       display: flex;
@@ -175,7 +177,6 @@
       gap: 6px;
       margin-bottom: -1px;
       overflow-x: auto;
-      padding-bottom: 0;
     }
     .tab-btn {
       flex: 1 0 auto;
@@ -227,13 +228,22 @@
     /* =========================================
        RESPONSIVE
        ========================================= */
+    @media (max-width: 1100px) {
+      /* Sin columna espejo a la derecha: el texto usa todo el ancho */
+      .header-institucional { grid-template-columns: var(--logo-ancho) 1fr; }
+    }
+
     @media (max-width: 900px) {
-      :root { --logo-ancho: 160px; }
-      .contenedor { margin: 20px auto; padding: 0 16px 40px 16px; }
-      .header-institucional { padding: 36px 24px 32px 24px; }
-      .logo-container { margin: -12px 0 24px -8px; }
-      .header-texto h1 { font-size: 1.55rem; }
-      p.subtitulo { font-size: 0.98rem; }
+      :root { --logo-ancho: 140px; }
+      .contenedor { margin: 16px auto; padding: 0 16px 32px 16px; }
+      .header-institucional {
+        grid-template-columns: 1fr;
+        row-gap: 14px;
+        padding: 20px;
+      }
+      .header-texto h1 { font-size: 1.4rem; }
+      p.subtitulo { font-size: 0.95rem; }
+      .equipo-investigacion { grid-template-columns: 1fr; gap: 10px; }
       .tab-btn { flex: 0 0 auto; white-space: nowrap; }
     }
   </style>
@@ -259,12 +269,6 @@
         </div>
       </div>
     </header>
-
-    <!-- Aquí va el resto de tu página (Sección A, separador, pestañas B–J), sin cambios -->
-
-  </div>
-</body>
-</html>
 
     <!-- BLOQUE 1: SECCIÓN A AISLADA -->
     <div class="bloque-header">Sección A: Datos sociodemográficos</div>
