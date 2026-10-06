@@ -13,7 +13,7 @@
   <style>
     :root {
       /* Cambia este valor para agrandar o achicar el logo */
-      --logo-ancho: 240px;
+      --logo-ancho: 300px;
 
       --acento: #E35210;
       --texto: #1F1F1F;
@@ -53,14 +53,15 @@
       margin-bottom: 0;
       border-top: 4px solid var(--acento);
       box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 6px 18px rgba(0,0,0,0.04);
-      display: grid;
-      grid-template-columns: var(--logo-ancho) 1fr var(--logo-ancho);
-      column-gap: 24px;
-      align-items: start;
+      display: flex;
+      justify-content: center;
     }
 
+    /* Logo sobre la caja blanca, alineado a la izquierda */
     .logo-container {
       width: var(--logo-ancho);
+      max-width: 100%;
+      margin: 0 0 16px 0;
     }
     .logo-container img {
       width: 100%;
@@ -228,19 +229,10 @@
     /* =========================================
        RESPONSIVE
        ========================================= */
-    @media (max-width: 1100px) {
-      /* Sin columna espejo a la derecha: el texto usa todo el ancho */
-      .header-institucional { grid-template-columns: var(--logo-ancho) 1fr; }
-    }
-
     @media (max-width: 900px) {
-      :root { --logo-ancho: 170px; }
+      :root { --logo-ancho: 220px; }
       .contenedor { margin: 16px auto; padding: 0 16px 32px 16px; }
-      .header-institucional {
-        grid-template-columns: 1fr;
-        row-gap: 14px;
-        padding: 20px;
-      }
+      .header-institucional { padding: 20px; }
       .header-texto h1 { font-size: 1.4rem; }
       p.subtitulo { font-size: 0.95rem; }
       .equipo-investigacion { grid-template-columns: 1fr; gap: 10px; }
@@ -251,12 +243,13 @@
 <body>
   <div class="contenedor">
 
+    <!-- Logo, arriba de la caja del encabezado -->
+    <div class="logo-container">
+      <img src="logo-udla.png" alt="Logo Universidad de Las Américas">
+    </div>
+
     <!-- Encabezado institucional -->
     <header class="header-institucional">
-      <div class="logo-container">
-        <img src="logo-udla.png" alt="Logo Universidad de Las Américas">
-      </div>
-
       <div class="header-texto">
         <h1>Tecnoestrés en repartidores de plataformas: demandas, recursos y satisfacción laboral</h1>
 
