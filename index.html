@@ -4,41 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PIR2026_2</title>
+
+  <!-- Tipografías estilo paper: serif para el texto, sans para detalles de interfaz -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       /* Cambia este valor para agrandar o achicar el logo */
-      --logo-ancho: 280px;
+      --logo-ancho: 200px;
+
+      --acento: #E35210;
+      --texto: #1F1F1F;
+      --texto-suave: #555555;
+      --linea: #D9D6CF;
+      --papel: #FFFFFF;
+      --fondo: #F3F1EC;
+
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+      --sans: "Source Sans 3", Arial, sans-serif;
     }
 
     body {
       margin: 0;
       padding: 0;
-      background: #F5F5F5;
-      font-family: Arial, sans-serif;
-    }
-    .contenedor {
-      max-width: 1350px;
-      margin: 20px auto;
-      padding: 0 20px 40px 20px;
+      background: var(--fondo);
+      font-family: var(--serif);
+      color: var(--texto);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* HEADER */
+    .contenedor {
+      max-width: 1350px;
+      margin: 40px auto;
+      padding: 0 24px 60px 24px;
+    }
+
+    /* =========================================
+       ENCABEZADO ESTILO PAPER
+       ========================================= */
     .header-institucional {
+      background: var(--papel);
+      padding: 56px 64px 48px 64px;
+      margin-bottom: 40px;
+      border-top: 4px solid var(--acento);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      gap: 30px;
-      margin-bottom: 25px;
-      background: #FFFFFF;
-      padding: 20px 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
     }
 
     .logo-container {
       width: var(--logo-ancho);
-      flex-shrink: 0;
-      overflow: hidden;
+      align-self: flex-start;   /* logo arriba a la izquierda */
+      margin: -24px 0 28px -24px;
     }
     .logo-container img {
       width: 100%;
@@ -47,66 +69,95 @@
     }
 
     .header-texto {
-      flex: 1;
-      text-align: left; /* Alineado a la izquierda para ocupar más ancho horizontal */
-      margin-right: 0;
-      transform: none; /* Se quita el desplazamiento que lo mandaba muy abajo */
+      max-width: 860px;   /* ancho de lectura cómodo */
+      width: 100%;
     }
 
     .header-texto h1 {
-      font-size: 1.6rem;
+      font-family: var(--serif);
+      font-size: 2.1rem;
       font-weight: 700;
-      line-height: 1.25;
-      margin: 0 0 8px 0;
-      color: #1A1A1A;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin: 0 0 18px 0;
+      color: var(--texto);
     }
 
     p.subtitulo {
-      color: #4D4D4D;
-      margin: 0 0 12px 0;
-      font-size: 0.95rem;
-      font-weight: 500;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--texto-suave);
+      margin: 0 auto 28px auto;
+      max-width: 680px;
+    }
+
+    /* Bloque de autores, separado por filetes finos */
+    .equipo-investigacion {
+      border-top: 1px solid var(--linea);
+      border-bottom: 1px solid var(--linea);
+      padding: 22px 0;
+      display: grid;
+      gap: 14px;
     }
 
     .equipo-investigacion p {
-      font-size: 0.9rem;
-      margin: 3px 0;
-      color: #333333;
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--texto);
     }
 
-    /* TITULOS DE BLOQUES */
+    .equipo-investigacion p strong {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--acento);
+      margin-bottom: 2px;
+    }
+
+    /* =========================================
+       TÍTULOS DE SECCIÓN
+       ========================================= */
     .bloque-header {
-      font-size: 18px;
-      font-weight: bold;
-      color: #1A1A1A;
-      margin: 25px 0 12px 0;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--texto);
+      margin: 48px 0 18px 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--linea);
       display: flex;
-      align-items: center;
-      gap: 10px;
+      align-items: baseline;
+      gap: 12px;
     }
     .bloque-header::before {
       content: "";
-      width: 6px;
-      height: 20px;
-      background-color: #E35210;
-      border-radius: 2px;
+      width: 4px;
+      height: 1.1em;
+      background-color: var(--acento);
+      align-self: center;
       display: inline-block;
     }
 
-    /* Separación clara entre el bloque A y el bloque de pestañas */
     .separador {
       border: 0;
-      border-top: 2px dashed #BDBDBD;
-      margin: 60px 0 10px 0;
+      border-top: 1px solid var(--linea);
+      margin: 64px auto 16px auto;
+      width: 40%;
     }
 
-    /* BLOQUE 1: SECCIÓN A */
+    /* =========================================
+       BLOQUE A
+       ========================================= */
     .marco-seccion-a {
-      border: 2px solid #E35210;
-      border-radius: 8px;
+      border: 1px solid var(--linea);
+      background: var(--papel);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
       overflow: hidden;
-      background: #FFFFFF;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
     .marco-seccion-a iframe {
       width: 100%;
@@ -115,59 +166,57 @@
       display: block;
     }
 
-    /* BLOQUE 2: PESTAÑAS (B a J) */
+    /* =========================================
+       PESTAÑAS (B a J) — con más aire
+       ========================================= */
     .tabs-bar {
       display: flex;
       flex-wrap: nowrap;
-      gap: 4px;
-      margin-bottom: -2px;
-      padding-left: 10px;
+      gap: 6px;
+      margin-bottom: -1px;
       overflow-x: auto;
+      padding-bottom: 0;
     }
     .tab-btn {
-      flex: 1 1 0;
-      min-width: 0;
-      background: #E2E2E2;
-      border: 2px solid #BDBDBD;
+      flex: 1 0 auto;
+      min-width: 120px;
+      background: #EAE7E0;
+      border: 1px solid var(--linea);
       border-bottom: none;
-      border-radius: 6px 6px 0 0;
-      padding: 10px 6px;
-      font-size: 12px;
-      line-height: 1.25;
+      border-radius: 4px 4px 0 0;
+      padding: 12px 16px;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      line-height: 1.35;
       text-align: center;
-      font-weight: bold;
-      color: #4A4A4A;
+      font-weight: 600;
+      color: var(--texto-suave);
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: background 0.2s ease, color 0.2s ease;
     }
     .tab-btn:hover {
-      background: #ECECEC;
-      color: #1A1A1A;
+      background: #F4F2ED;
+      color: var(--texto);
     }
     .tab-btn.active {
-      background: #FFFFFF;
-      color: #E35210;
-      border-color: #E35210;
-      border-bottom: 2px solid #FFFFFF;
+      background: var(--papel);
+      color: var(--acento);
+      border-color: var(--linea);
+      border-top: 3px solid var(--acento);
       position: relative;
       z-index: 2;
     }
 
     .marco-iframe {
-      border: 2px solid #E35210;
-      border-radius: 0 8px 8px 8px;
-      overflow: hidden;
-      background: #FFFFFF;
+      border: 1px solid var(--linea);
+      background: var(--papel);
       position: relative;
       z-index: 1;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      overflow: hidden;
     }
-    .tab-content {
-      display: none;
-    }
-    .tab-content.active {
-      display: block;
-    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
     .marco-iframe iframe {
       width: 100%;
       height: 950px;
@@ -175,20 +224,17 @@
       display: block;
     }
 
-    /* RESPONSIVE EN MÓVILES */
+    /* =========================================
+       RESPONSIVE
+       ========================================= */
     @media (max-width: 900px) {
-      :root {
-        --logo-ancho: 220px;
-      }
-      .header-institucional {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-      }
-      .tab-btn {
-        flex: 0 0 auto;
-        white-space: nowrap;
-      }
+      :root { --logo-ancho: 160px; }
+      .contenedor { margin: 20px auto; padding: 0 16px 40px 16px; }
+      .header-institucional { padding: 36px 24px 32px 24px; }
+      .logo-container { margin: -12px 0 24px -8px; }
+      .header-texto h1 { font-size: 1.55rem; }
+      p.subtitulo { font-size: 0.98rem; }
+      .tab-btn { flex: 0 0 auto; white-space: nowrap; }
     }
   </style>
 </head>
@@ -197,24 +243,28 @@
 
     <!-- Encabezado institucional -->
     <header class="header-institucional">
-  <div class="logo-container">
-    <img src="logo-udla.png" alt="Logo Universidad de Las Américas">
+      <div class="logo-container">
+        <img src="logo-udla.png" alt="Logo Universidad de Las Américas">
+      </div>
+
+      <div class="header-texto">
+        <h1>Tecnoestrés en repartidores de plataformas: demandas, recursos y satisfacción laboral</h1>
+
+        <p class="subtitulo">Proyecto PIR2026_02 financiado por la Dirección de Investigación, Universidad de Las Américas</p>
+
+        <div class="equipo-investigacion">
+          <p><strong>Investigador Responsable</strong> Jorge Serrano Malebrán</p>
+          <p><strong>Co-Investigadores</strong> Juan Carlos Vidal y Carlos Molina</p>
+          <p><strong>Investigadores Ayudantes</strong> Brandon Cabrera Betanzo, Matías Meneses Retamal, Yerko Moscoso Reyes</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Aquí va el resto de tu página (Sección A, separador, pestañas B–J), sin cambios -->
+
   </div>
-  <div class="header-texto">
-    <!-- Título principal en negrita y grande -->
-    <h1><strong>Tecnoestrés en repartidores de plataformas: demandas, recursos y satisfacción laboral</strong></h1>
-    
-    <!-- Subtítulo con la información del proyecto -->
-    <p class="subtitulo">Proyecto PIR2026_02 financiado por la Dirección de Investigación, Universidad de Las Américas</p>
-    
-    <!-- Detalles del equipo de investigación -->
-    <div class="equipo-investigacion">
-      <p><strong>Investigador Responsable:</strong> Jorge Serrano Malebrán</p>
-      <p><strong>Co-Investigadores:</strong> Juan Carlos Vidal y Carlos Molina</p>
-      <p><strong>Investigadores Ayudantes:</strong> Brandon Cabrera Betanzo, Matías Meneses Retamal, Yerko Moscoso Reyes</p>
-    </div>
-  </div>
-</header>
+</body>
+</html>
 
     <!-- BLOQUE 1: SECCIÓN A AISLADA -->
     <div class="bloque-header">Sección A: Datos sociodemográficos</div>
